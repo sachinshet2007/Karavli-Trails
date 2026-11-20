@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cab & Bike Rentals – Karavali Trails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="cab">
+<header class="site-header" id="site-header"></header>
+<main class="container page">
+  <h1 class="page-title">Cab, Transportation and Bike Rentals</h1>
+  <section><h2>Cab and driver services</h2><p class="muted">Cars, SUVs, tempo travellers and auto rickshaws. Listings marked DEMO DATA are samples.</p>
+    <div class="filters" id="driverFilters"></div><div class="grid card-grid" id="driverList"></div></section>
+  <section class="bike-section"><h2>Rent bikes</h2>
+    <p class="msg ok">Rental conditions: a valid driving licence for the vehicle class and a minimum age of 18 are needed, and the provider may ask for ID proof and a deposit. A rental request is not a confirmed booking until the provider accepts it.</p>
+    <div class="filters" id="bikeFilters"></div><div class="grid card-grid" id="bikeList"></div></section>
+</main>
+<dialog id="rentDlg"><form id="rentForm" class="dlg-form">
+  <h3>Request to rent</h3><p id="rentName" class="muted"></p>
+  <label class="field">Start date<input type="date" name="start" required></label>
+  <label class="field">End date<input type="date" name="end" required></label>
+  <p id="rentEst" class="price"></p>
+  <p class="small"><strong>Conditions and documents:</strong> <span id="rentCond"></span></p>
+  <label class="check"><input type="checkbox" name="agree"> I have a valid licence for this vehicle and meet the age requirement.</label>
+  <p id="rentMsg" class="msg" hidden></p>
+  <div class="actions"><button class="btn" id="rentSubmit" type="submit">Send Rental Request</button><button class="btn btn-outline" type="button" id="rentCancel">Cancel</button></div>
+</form></dialog>
+<footer class="site-footer" id="site-footer"></footer>
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+</body></html>

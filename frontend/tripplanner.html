@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trip Planner – Karavali Trails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+<header class="site-header" id="site-header"></header>
+<main class="container page">
+  <h1 class="page-title">Smart Trip Planner</h1>
+  <p class="muted">Tell us what you like. We group nearby places into day-wise routes using simple rules and our destination database. No AI is involved. The budget is per person for the whole trip.</p>
+  <form id="planForm" class="form-card wide-card" novalidate>
+    <div class="form-grid">
+      <label class="field">Number of days<select name="days" required><option value="">Choose</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>7</option></select></label>
+      <label class="field">Budget (per person)<select name="budget" required><option value="">Choose</option><option value="1000-3000">₹1,000 – ₹3,000</option><option value="3000-5000">₹3,000 – ₹5,000</option><option value="5000-10000">₹5,000 – ₹10,000</option><option value="10000-15000">₹10,000 – ₹15,000</option><option value="15000+">Above ₹15,000</option></select></label>
+      <label class="field">Starting location<input name="startingLocation" list="towns" placeholder="e.g. Gokarna" required></label>
+      <label class="field">Number of travellers<input name="travellers" type="number" min="1" max="40" value="2" required></label>
+    </div>
+    <datalist id="towns"><option>Karwar</option><option>Gokarna</option><option>Kumta</option><option>Honnavar</option><option>Murudeshwar</option><option>Bhatkal</option><option>Ankola</option><option>Sirsi</option><option>Yellapur</option><option>Dandeli</option></datalist>
+    <fieldset class="interests"><legend>Travel interests (choose one or more)</legend>
+      <label><input type="checkbox" name="interests" value="Temples"> Temples</label><label><input type="checkbox" name="interests" value="Beaches"> Beaches</label>
+      <label><input type="checkbox" name="interests" value="Trekking"> Trekking</label><label><input type="checkbox" name="interests" value="Forests and Wildlife"> Forests and Wildlife</label>
+      <label><input type="checkbox" name="interests" value="Waterfalls"> Waterfalls</label><label><input type="checkbox" name="interests" value="Adventure Activities"> Adventure Activities</label>
+      <label><input type="checkbox" name="interests" value="Historical Places"> Historical Places</label></fieldset>
+    <p id="msg" class="msg" hidden></p>
+    <button class="btn" id="planBtn" type="submit">Plan My Trip</button>
+  </form>
+
+  <section id="result" hidden>
+    <h2 id="rTitle"></h2><div class="chips" id="rMeta"></div><div id="rWarn"></div>
+    <div class="grid day-grid" id="rDays"></div>
+    <h3>Estimated expenses</h3><div id="rCost"></div>
+    <h3>Route map</h3><div id="pmap" class="map-box"></div>
+    <div class="actions no-print"><button class="btn" id="saveBtn">Save Trip</button><button class="btn btn-outline" id="pdfBtn">Download PDF</button><button class="btn btn-outline" id="regenBtn">Regenerate Trip</button><button class="btn btn-outline" id="routeBtn">View Route on Map</button></div>
+    <p id="saveMsg" class="msg" hidden></p><p class="muted small no-print">Download PDF opens your browser's print window. Choose "Save as PDF" as the printer.</p>
+  </section>
+</main>
+<footer class="site-footer" id="site-footer"></footer>
+<script src="js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="js/map.js"></script>
+<script src="js/tripplanner.js"></script>
+</body></html>
